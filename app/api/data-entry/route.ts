@@ -28,13 +28,13 @@ export async function POST(req: Request) {
       data: {
         village,
         provider,
-        remainingBalance,
+        remainingBalance: parseFloat(remainingBalance),
         bankName,
         customerName,
-        walletBalance,
+        walletBalance: parseFloat(walletBalance),
         aadhaarNumber,
-        withdrawalAmount,
-        remainingBalanceCustomer
+        withdrawalAmount: parseFloat(withdrawalAmount),
+        remainingBalanceCustomer: parseFloat(remainingBalanceCustomer)
       }
     })
 
@@ -44,4 +44,3 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Failed to create entry' }, { status: 500 })
   }
 }
-

@@ -1,6 +1,6 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
-import { SessionProvider } from 'next-auth/react'
+import { Providers } from './components/Providers'
 import Navbar from './components/Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -17,14 +17,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <SessionProvider>
-        <body className={inter.className}>
+      <body className={inter.className}>
+        <Providers>
           <Navbar />
           <main className="container mx-auto mt-4">
             {children}
           </main>
-        </body>
-      </SessionProvider>
+        </Providers>
+      </body>
     </html>
   )
 }
